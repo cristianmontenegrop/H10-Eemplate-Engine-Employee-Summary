@@ -1,0 +1,29 @@
+{
+  "name": "unit10hw",
+  "version": "1.0.0",
+  "description": "Week 10 homework",
+  "main": "app.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest --verbose test/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cristianmontenegrop/H10-Template-Engine-Employee-Summary"
+  },
+  "author": "Cristian Montenegro",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cristianmontenegrop/H10-Template-Engine-Employee-Summary/issues"
+  },
+  "homepage": "https://github.com/cristianmontenegrop/H10-Template-Engine-Employee-Summary/blob/master/README.md",
+  "dependencies": {
+    "inquirer": "^6.3.1"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
