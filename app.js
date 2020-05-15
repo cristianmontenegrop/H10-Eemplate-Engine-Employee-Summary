@@ -35,23 +35,11 @@ inquirer
             name: "officeNumber",
             message: "Office Number?"
         }
-    ]).then(function (data) {
-        const {
-            name,
-            id,
-            email,
-            officeNumber
-        } = data;
-        const role = "Manager"
-        const manager = {
-            name,
-            role,
-            email,
-            id,
-            officeNumber
-        };
+    ]).then(answers => {
+        var renderObject = [];
+        const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
+        renderObject.push(manager);
 
-        var renderObject = [manager];
         console.log(renderObject);
         userPrompt = () => {
             inquirer.prompt([{
@@ -86,21 +74,9 @@ inquirer
                             name: "school",
                             message: "What's the employee's school?"
                         }
-                    ]).then(function (intern) {
-                        const {
-                            name,
-                            id,
-                            email,
-                            school
-                        } = intern;
-                        const role = data.role;
-                        intern = {
-                            name,
-                            role,
-                            email,
-                            id,
-                            school
-                        };
+                    ]).then(function (answers) {
+                        const intern = new Intern(answers.name, answers.id, answers.email, answers.school);
+
                         renderObject.push(intern);
                         userPrompt();
                     });
@@ -125,33 +101,23 @@ inquirer
                             name: "github",
                             message: "What's the engineer's Github account?"
                         }
-                    ]).then(function (engineer) {
-                        const {
-                            name,
-                            id,
-                            email,
-                            github
-                        } = engineer;
-                        const role = data.role;
-                        engineer = {
-                            name,
-                            role,
-                            email,
-                            id,
-                            github
-                        };
+                    ]).then(function (answers) {
+
+                        const engineer = new Engineer(answers.name, answers.id, answers.email, answers.github);
                         renderObject.push(engineer);
                         userPrompt();
                     });
 
                 } else if (data.role === "I'm done adding") {
                     console.log(renderObject);
-                    render(renderObject).then(
-                        fs.appendFile(outputPath, render.template, function (err) {
-                            if (err) throw err;
-                            console.log("File saved!");
-                        })
-                    );
+                    render(renderObject);
+
+                    fs.appendFile(outputPath, render.template, function (err) {
+                        if (err) throw err;
+                        console.log("File saved!");
+                    })
+
+
 
                 }
             })
