@@ -108,26 +108,27 @@ inquirer
                         userPrompt();
                     });
 
+
                 } else if (data.role === "I'm done adding") {
                     console.log(renderObject);
-                    render(renderObject);
 
-                    fs.appendFile(outputPath, render.template, function (err) {
-                        if (err) throw err;
-                        console.log("File saved!");
-                    })
+                    writeFile(outputPath, render(renderObject));
 
+                    // console.log(render.template);
 
+                };
 
-                }
-            })
+            });
         };
-
         userPrompt();
     });
 
-
-
+function writeFile(filename, data) {
+    fs.appendFile(filename, data, function (err) {
+        if (err) throw err;
+        console.log("File saved!");
+    })
+}
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
