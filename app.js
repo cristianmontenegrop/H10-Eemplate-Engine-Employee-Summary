@@ -10,7 +10,6 @@ const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
 
-
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
@@ -40,7 +39,6 @@ inquirer
         const manager = new Manager(answers.name, answers.id, answers.email, answers.officeNumber);
         renderObject.push(manager);
 
-        console.log(renderObject);
         userPrompt = () => {
             inquirer.prompt([{
                 type: "list",
@@ -108,16 +106,9 @@ inquirer
                         userPrompt();
                     });
 
-
                 } else if (data.role === "I'm done adding") {
-                    console.log(renderObject);
-
                     writeFile(outputPath, render(renderObject));
-
-                    // console.log(render.template);
-
                 };
-
             });
         };
         userPrompt();

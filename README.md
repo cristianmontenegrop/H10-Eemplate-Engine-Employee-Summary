@@ -7,6 +7,8 @@
 
 This Web Application creates a file that displays the information of a team comprised of a Manager, Interns and Engineers, the information is provided to the application through a Command Line Interface in node.js.
 
+[A GIF of the working application can be found here](https://media.giphy.com/media/Pj6nNINMVgmb35aPQC/giphy.gif)
+
 ## Table of Contents 
 
 * [Installation](#installation)
