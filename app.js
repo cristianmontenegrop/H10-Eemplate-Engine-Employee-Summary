@@ -115,7 +115,7 @@ inquirer
     });
 
 function writeFile(filename, data) {
-    fs.appendFile(filename, data, function (err) {
+    fs.writeFile(filename, data, function (err) {
         if (err) throw err;
         console.log("File saved!");
     })
