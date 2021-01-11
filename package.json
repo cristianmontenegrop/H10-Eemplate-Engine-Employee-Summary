@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/cristianmontenegrop/H10-Template-Engine-Employee-Summary/blob/master/README.md",
   "dependencies": {
+    "eslint-plugin-jest": "^24.1.3",
     "inquirer": "^6.3.1"
   },
   "devDependencies": {
